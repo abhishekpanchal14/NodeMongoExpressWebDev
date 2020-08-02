@@ -18,9 +18,8 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 
 const mongoose = require('mongoose')
-// mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
-mongoose.connect('mongodb+srv://mongodb:1234@abhishekmongodbcluster.dtpm0.azure.mongodb.net/mongodb?retryWrites=true&w=majority',
-{ useNewUrlParser: true})
+mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true})
+
 const db = mongoose.connection
 db.on('error',error => console.error(error))
 db.once('open',() => console.log('Connected to Mongoose'))
